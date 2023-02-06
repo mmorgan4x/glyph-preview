@@ -1,0 +1,24 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  width: 600px;
+  height: 600px;
+  overflow: auto;
+}
+
+.code {
+  border: 1px solid #ccc;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: baseline;
+  line-height: 1;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+  }
+  font-family: custom-font;
+}

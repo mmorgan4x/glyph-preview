@@ -2,33 +2,21 @@ aside {
   background: #eee;
   width: 300px;
   height: 100%;
-}
-
-.drop-area {
-  // height: 30px;
-  outline-offset: -2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  outline-offset: -.75rem;
 
   &.active {
     opacity: 0.5;
     outline: 2px dashed #999;
   }
+}
 
-  .icon {
-    font-size: 50px;
-    color: #999;
-  }
-
+.drop-area {
   label {
     cursor: pointer;
-  }
-  .label {
-    font-weight: bold;
+    display: block;
   }
 
-  label:hover .label {
+  label:hover b {
     text-decoration: underline;
   }
 }

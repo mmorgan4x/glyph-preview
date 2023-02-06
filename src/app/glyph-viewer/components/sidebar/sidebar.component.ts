@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { StateManager } from '../../state.manager';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,13 +9,22 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  async upload(files: File[]) {
-    let file = files[0];
-    let fontUrl = await this.readFileAsync(file);
+  constructor(public state: StateManager) {}
 
-    let new_font = new FontFace('custom-font', `url(${fontUrl})`);
-    let loadedFont = await new_font.load();
-    (document as any).fonts.add(loadedFont);
+  get fonts() {
+    return this.state.fonts;
+  }
+
+  async upload(fileList?: FileList) {
+    let files = Array.from(fileList || []);
+    for (let file of files) {
+      let fontUrl = await this.readFileAsync(file);
+      let newFont = new FontFace('custom-font', `url(${fontUrl})`);
+      let loadedFont = await newFont.load();
+      (document as any).fonts.add(loadedFont);
+
+      this.state.addFont(file);
+    }
   }
 
   readFileAsync(file: File) {
@@ -57,7 +67,7 @@ export class SidebarComponent {
   drop(e: DragEvent) {
     this.dragCounter = 0;
     this.showBorder = false;
-    let files = Array.from(e.dataTransfer?.files || []);
+    let files = e.dataTransfer?.files;
     this.upload(files);
   }
 }
