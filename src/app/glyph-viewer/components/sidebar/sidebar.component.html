@@ -1,7 +1,11 @@
 <aside class="p-4">
   <h4>Fonts</h4>
+  <div>
+    <button class="btn btn-primary">font1</button>
+    <button class="btn btn-primary">font2</button>
+  </div>
 
-  <div class="drop-area">
+  <div class="drop-area" [class.active]="showBorder">
     <label for="file-input" class="text-center">
       <div class="icon"><i class="bi bi-download"></i></div>
       <div>
