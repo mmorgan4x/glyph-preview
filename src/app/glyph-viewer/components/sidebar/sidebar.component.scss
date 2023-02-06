@@ -1,0 +1,39 @@
+aside {
+  background: #eee;
+  width: 300px;
+  height: 100%;
+}
+
+.drop-area {
+  background-color: #eee;
+  height: calc(100vh - 162px);
+  outline: 2px dashed #999;
+  outline-offset: -12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+
+  &.active {
+    opacity: 0.5;
+  }
+
+  .icon {
+    font-size: 160px;
+    color: #999;
+    margin: 1rem;
+  }
+
+  label {
+    cursor: pointer;
+  }
+  .label {
+    font-weight: bold;
+  }
+
+  label:hover .label {
+    text-decoration: underline;
+  }
+
+
+}

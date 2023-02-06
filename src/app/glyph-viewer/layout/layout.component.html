@@ -1,26 +1,16 @@
-<nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href=""><img class="logo" src="./assets/glyph.png" /> Glyph Viewer</a>
-
-        <div class="navbar-nav flex-grow-1 flex-row">
-          
-        </div>
-
-        <div class="dropdown">
-            <div class="help-btn" data-bs-toggle="dropdown"><i class="bi bi-question-circle" title="Help"></i></div>
-            <div class="dropdown-menu dropdown-menu-end p-4">
-                <h4>How to get the data file?</h4>
-                <hr>
-                <ul>
-                    <li>Head to <a href="https://takeout.google.com" target="_blank">Google Takeout</a></li>
-                    <li>Select your <b>Nest</b> data to export</li>
-                    <li>In types selected, select <b>thermostats</b></li>
-                    <li>Continue to the <b>Next step</b></li>
-                    <li><b>Create Export</b> and dowload the .zip file</li>
-                    <li>Upload the zip file here</li>
-                </ul>
-                <a class="text-end small d-block" href="https://github.com/CaptM44/nest-viewer/discussions" target="_blank">Feedback?</a>
-            </div>
-        </div>
-    </div>
-</nav>
+<app-navbar></app-navbar>
+<div class="content">
+  <app-sidebar></app-sidebar>
+  <main>
+    <h1 class="custom-font">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </h1>
+  </main>
+</div>
+<app-footer></app-footer>
