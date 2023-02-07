@@ -1,7 +1,6 @@
 import { Component, HostListener } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 import { StateManager } from '../../state.manager';
+import { Font } from 'src/types';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,38 +8,24 @@ import { StateManager } from '../../state.manager';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  constructor(public state: StateManager) {}
+  constructor(public state: StateManager) { }
 
   get fonts() {
     return this.state.fonts;
   }
 
-  async upload(fileList?: FileList) {
+  async uploadFont(fileList?: FileList) {
     let files = Array.from(fileList || []);
     for (let file of files) {
-      let fontUrl = await this.readFileAsync(file);
-      let newFont = new FontFace('custom-font', `url(${fontUrl})`);
-      let loadedFont = await newFont.load();
-      (document as any).fonts.add(loadedFont);
-
-      this.state.addFont(file);
+      let font = await this.state.createFont(file);
+      this.state.addFont(font);
     }
-  }
-
-  readFileAsync(file: File) {
-    return new Promise((resolve, reject) => {
-      let reader = new FileReader();
-      reader.onload = () => {
-        resolve(reader.result);
-      };
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
   }
 
   dragCounter = 0;
   showBorder = false;
 
+  // #region drag and drop
   @HostListener('window:drop', ['$event'])
   @HostListener('window:dragover', ['$event'])
   cancelDrop = (e: DragEvent) => {
@@ -68,6 +53,7 @@ export class SidebarComponent {
     this.dragCounter = 0;
     this.showBorder = false;
     let files = e.dataTransfer?.files;
-    this.upload(files);
+    this.uploadFont(files);
   }
+  // #endregion  
 }

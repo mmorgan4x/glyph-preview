@@ -14,7 +14,7 @@ export class GridComponent {
   get fonts() {
     return this.state.fonts;
   }
-  codes = Array.from(Array(2560).keys()).map((t) => String.fromCharCode(t));
+  glyphs = Array.from(Array(2560).keys()).map((t) => String.fromCharCode(t));
 
   ngOnInit() {}
 }
