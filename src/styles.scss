@@ -2,3 +2,8 @@
 .custom-font {
   font-family: 'custom-font', var(--bs-body-font-family);
 }
+
+h4 {
+  font-weight: 100 !important;
+  text-transform: uppercase;
+}

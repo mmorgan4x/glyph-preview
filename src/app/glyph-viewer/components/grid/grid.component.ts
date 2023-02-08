@@ -9,12 +9,12 @@ import { StateManager } from '../../state.manager';
   styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent {
-  constructor(public state: StateManager) {}
+  constructor(public state: StateManager) { }
 
-  get fonts() {
-    return this.state.fonts;
-  }
+  get fonts() { return this.state.fonts }
+  get selectedFont() { return this.state.selectedFont }
+
   glyphs = Array.from(Array(2560).keys()).map((t) => String.fromCharCode(t));
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

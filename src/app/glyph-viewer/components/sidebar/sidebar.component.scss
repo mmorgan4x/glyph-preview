@@ -1,6 +1,6 @@
 aside {
   background: #eee;
-  width: 300px;
+  width: 350px;
   height: 100%;
   outline-offset: -.75rem;
 
@@ -19,4 +19,51 @@ aside {
   label:hover b {
     text-decoration: underline;
   }
+}
+
+.font,
+.add-btn {
+  cursor: pointer;
+  display: flex;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding: .5rem 1.5rem;
+
+  &:hover {
+    background: #ddd;
+  }
+}
+
+.font {
+
+  i,
+  span {
+    opacity: .5;
+  }
+
+  &.active :is(i, span) {
+    opacity: 1;
+    font-weight: bold;
+  }
+
+  .btn-close {
+    display: none;
+  }
+
+  &:hover .btn-close {
+    display: block;
+
+  }
+}
+
+h4 {
+  display: flex;
+  align-items: center;
+}
+
+.form-check {
+  font-size: 1rem;
+  text-transform: none;
+  margin-left: auto;
+  margin-bottom: 0;
 }

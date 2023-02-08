@@ -17,7 +17,8 @@ export class SidebarComponent {
   async uploadFont(fileList?: FileList) {
     let files = Array.from(fileList || []);
     for (let file of files) {
-      let font = await this.state.createFont(file);
+      let font = await this.state.createFontFromFile(file);
+      await this.state.loadFont(font);
       this.state.addFont(font);
     }
   }
@@ -55,5 +56,5 @@ export class SidebarComponent {
     let files = e.dataTransfer?.files;
     this.uploadFont(files);
   }
-  // #endregion  
+  // #endregion
 }

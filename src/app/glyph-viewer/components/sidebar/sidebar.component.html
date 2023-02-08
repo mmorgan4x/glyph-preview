@@ -1,18 +1,22 @@
 <aside class="p-4" [class.active]="showBorder">
-  <h4>Fonts</h4>
-  <div *ngIf="!fonts.length" class="text-muted fst-italic">
-    no font selected
+  <h4>Fonts
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="save">
+      <label class="form-check-label" for="save">save</label>
+    </div>
+  </h4>
+  <div *ngIf="!fonts.length" class="text-muted fst-italic py-2">no font files added</div>
+  <div class="mb-3">
+    <div *ngFor="let font of fonts" class="font" [class.active]="font==state.selectedFont" (click)="state.setFont(font)">
+      <i class="bi bi-file-earmark-font me-2"></i>
+      <span>{{ font.name }}</span>
+      <button class="btn-close ms-auto" (click)="$event.stopPropagation(); state.deleteFont(font)"></button>
+    </div>
   </div>
-  <div class="list-group mb-3">
-    <button *ngFor="let font of fonts" class="list-group-item list-group-item-action">
-      {{ font.name }}
-    </button>
-  </div>
-
-  <label class="btn btn-primary w-100" role="button" for="file-input">
+  <label class="add-btn">
     <input #fileInput type="file" id="file-input" class="d-none" accept=".ttf,.otf,.woff,.woff2" multiple (change)="uploadFont($any($event.target).files); fileInput.value = ''" />
-    <i class="bi bi-plus"></i> Choose a file
+    <i class="bi bi-plus-square me-2"></i>
+    <span>Add a font file</span>
   </label>
-  <div class="text-center">or</div>
-  <div class="text-center fw-bold">drag it here</div>
+
 </aside>

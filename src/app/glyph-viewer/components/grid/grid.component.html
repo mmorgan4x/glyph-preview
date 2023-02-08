@@ -1,5 +1,8 @@
-<div class="grid">
-  <div *ngFor="let glyph of glyphs" class="glyph">
-    {{ glyph }}
+<div [style.font-family]="state.getFontFamily()">
+  <h1>{{state.selectedFont?.name}}</h1>
+  <div class="grid">
+    <div *ngFor="let glyph of glyphs" class="glyph">
+      {{ glyph }}
+    </div>
   </div>
 </div>
