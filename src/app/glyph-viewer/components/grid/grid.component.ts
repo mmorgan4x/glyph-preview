@@ -1,6 +1,4 @@
-import { Component, HostListener } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 import { StateManager } from '../../state.manager';
 
 @Component({
@@ -14,7 +12,11 @@ export class GridComponent {
   get fonts() { return this.state.fonts }
   get selectedFont() { return this.state.selectedFont }
 
-  glyphs = Array.from(Array(2560).keys()).map((t) => String.fromCharCode(t));
+  glyphs = Array.from(Array(2560).keys()).map((t) => ({ code: t, unicode: this.hex(t), char: String.fromCharCode(t) }));
 
   ngOnInit() { }
+
+  hex(value: number) {
+    return `U+${value.toString(16).toUpperCase().padStart(4, '0')}`
+  }
 }

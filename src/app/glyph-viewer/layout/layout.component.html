@@ -2,7 +2,15 @@
 <div class="content">
   <app-sidebar></app-sidebar>
   <main class="p-4">
-    <app-grid></app-grid>
+    <h1 [style.font-family]="state.getFontFamily()">{{state.selectedFont?.name}}</h1>
+    <div class="row">
+      <div class="col">
+        <app-grid></app-grid>
+      </div>
+      <div class="col">
+        <app-output></app-output>
+      </div>
+    </div>
   </main>
 </div>
 <app-footer></app-footer>

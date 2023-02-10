@@ -7,6 +7,8 @@ export class StateManager {
   fonts: Font[] = [];
   selectedFont: Font | null = null;
 
+  textOutput = '';
+
   constructor() {
     this.fonts = JSON.parse(localStorage.getItem('fonts') || '[]');
     this.selectedFont = this.fonts[0];
@@ -50,6 +52,10 @@ export class StateManager {
   getFontFamily(font?: Font) {
     let fontFamily = `'${font?.name || this.selectedFont?.name}'`;
     return [fontFamily, 'var(--bs-body-font-family)'].join(',')
+  }
+
+  addGylph(char: string) {
+    this.textOutput += char;
   }
 
   async readFileAsync(file: File) {

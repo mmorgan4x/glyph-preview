@@ -1,6 +1,4 @@
 import { Component } from "@angular/core";
-import { Subscription } from "rxjs";
-import { ActivatedRoute } from "@angular/router";
 import { StateManager } from "../state.manager";
 
 @Component({
@@ -9,4 +7,9 @@ import { StateManager } from "../state.manager";
   styleUrls: ["./layout.component.scss"],
   providers: [StateManager],
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+  constructor(public state: StateManager) { }
+}
+
+//TODO
+// .zip support

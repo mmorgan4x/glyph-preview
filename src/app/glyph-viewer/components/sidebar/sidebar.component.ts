@@ -1,6 +1,5 @@
 import { Component, HostListener } from '@angular/core';
 import { StateManager } from '../../state.manager';
-import { Font } from 'src/types';
 
 @Component({
   selector: 'app-sidebar',

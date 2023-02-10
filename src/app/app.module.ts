@@ -11,6 +11,7 @@ import { NavbarComponent } from './glyph-viewer/components/navbar/navbar.compone
 import { SidebarComponent } from './glyph-viewer/components/sidebar/sidebar.component';
 import { FooterComponent } from './glyph-viewer/components/footer/footer.component';
 import { GridComponent } from './glyph-viewer/components/grid/grid.component';
+import { OutputComponent } from './glyph-viewer/components/output/output.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, CommonModule, AppRoutingModule],
@@ -21,8 +22,9 @@ import { GridComponent } from './glyph-viewer/components/grid/grid.component';
     SidebarComponent,
     FooterComponent,
     GridComponent,
+    OutputComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

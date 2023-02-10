@@ -1,10 +1,5 @@
 <aside class="p-4" [class.active]="showBorder">
-  <h4>Fonts
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="save">
-      <label class="form-check-label" for="save">save</label>
-    </div>
-  </h4>
+  <h4>Fonts</h4>
   <div *ngIf="!fonts.length" class="text-muted fst-italic py-2">no font files added</div>
   <div class="mb-3">
     <div *ngFor="let font of fonts" class="font" [class.active]="font==state.selectedFont" (click)="state.setFont(font)">

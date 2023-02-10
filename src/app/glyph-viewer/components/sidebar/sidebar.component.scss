@@ -10,17 +10,6 @@ aside {
   }
 }
 
-.drop-area {
-  label {
-    cursor: pointer;
-    display: block;
-  }
-
-  label:hover b {
-    text-decoration: underline;
-  }
-}
-
 .font,
 .add-btn {
   cursor: pointer;
@@ -54,16 +43,4 @@ aside {
     display: block;
 
   }
-}
-
-h4 {
-  display: flex;
-  align-items: center;
-}
-
-.form-check {
-  font-size: 1rem;
-  text-transform: none;
-  margin-left: auto;
-  margin-bottom: 0;
 }
