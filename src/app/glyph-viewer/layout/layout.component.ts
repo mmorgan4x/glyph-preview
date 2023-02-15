@@ -13,3 +13,15 @@ export class LayoutComponent {
 
 //TODO
 // .zip support
+// fontkit 
+//webworker
+//uint typeda array
+//recent
+//favorit
+//sticky unicode header
+//deepscan
+//filters
+//uont system,upload,url
+//selection input
+//format output
+

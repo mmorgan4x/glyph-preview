@@ -1,7 +1,11 @@
-<div [style.font-family]="state.getFontFamily()">
-  <div class="grid">
-    <div *ngFor="let glyph of glyphs" class="glyph" title="{{glyph.char}}, {{glyph.unicode}}" (click)="state.addGylph(glyph.char)">
-      {{ glyph.char }}
-    </div>
+<div class="d-flex align-items-center">
+  <button class="btn btn-primary" (click)="proccessGlyphs()">scan</button>
+  <div class="ms-auto">({{glyphs.length}})</div>
+</div>
+<div class="grid" [style.font-family]="state.getFontFamily()">
+  <div *ngFor="let glyph of glyphs" class="glyph" title="{{glyph.char}}, {{glyph.unicode}}" (click)="state.addGylph(glyph.char)" [class.default]="glyph.isDefault">
+    <span>{{ glyph.char }}</span>
+    <!-- <span class="font-default">{{glyph.char}}</span> -->
+    <div class="unicode">{{glyph.unicode}}</div>
   </div>
 </div>

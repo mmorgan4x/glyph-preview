@@ -2,7 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   border: 1px solid #ccc;
-  height: calc(100vh - 190px);;
+  // height: 400px;
+  height: calc(100vh - 240px);
+  ;
   overflow: auto;
 }
 
@@ -13,10 +15,39 @@
   display: flex;
   font-size: 2rem;
   justify-content: center;
+  // align-items: baseline;
   align-items: center;
   line-height: 1;
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
+
   &:hover {
-    opacity: 0.5;
+    overflow: visible;
+    background: #ddd;
+
+    .unicode {
+      display: block;
+    }
   }
+
+  .unicode {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: .75rem;
+    font-family: 'Courier New', Courier, monospace;
+    background: #eee;
+    text-align: center;
+    display: none;
+  }
+}
+
+.font-default {
+  font-family: var(--bs-body-font-family);
+}
+
+.default {
+  background: rgb(255, 216, 209);
 }
