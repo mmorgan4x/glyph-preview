@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { StateManager } from '../../state.manager';
 
 @Component({
@@ -10,6 +10,21 @@ export class OutputComponent {
 
   constructor(public state: StateManager) { }
 
-  ngOnInit() { }
+  @ViewChild('inputEl1') inputEl1: ElementRef | null = null;
 
+  ngAfterViewInit() {
+    this.state.inputEl = this.inputEl1?.nativeElement;
+  }
+
+  focus(inputEl: HTMLInputElement) {
+    this.state.inputEl = inputEl;
+  }
+
+  blur(e: FocusEvent) {
+    e.preventDefault()
+    let target = e.relatedTarget as HTMLElement | null;
+    if (target?.classList.contains('glyph')) {
+      (e.target as HTMLElement | null)?.focus()
+    }
+  }
 }

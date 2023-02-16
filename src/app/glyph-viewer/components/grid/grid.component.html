@@ -1,9 +1,9 @@
-<div class="d-flex align-items-center">
-  <button class="btn btn-primary" (click)="proccessGlyphs()">scan</button>
+<div class="d-flex align-items-center mb-3">
+  <button class="btn btn-primary" (click)="proccessGlyphs()"><i class="bi bi-upc-scan me-1"></i> Scan glyphs</button>
   <div class="ms-auto">({{glyphs.length}})</div>
 </div>
 <div class="grid" [style.font-family]="state.getFontFamily()">
-  <div *ngFor="let glyph of glyphs" class="glyph" title="{{glyph.char}}, {{glyph.unicode}}" (click)="state.addGylph(glyph.char)" [class.default]="glyph.isDefault">
+  <div *ngFor="let glyph of glyphs" class="glyph" title="{{glyph.char}}, {{glyph.unicode}}" (click)="state.addGylph(glyph.char)" [class.default]="glyph.isDefault" tabindex="0">
     <span>{{ glyph.char }}</span>
     <!-- <span class="font-default">{{glyph.char}}</span> -->
     <div class="unicode">{{glyph.unicode}}</div>

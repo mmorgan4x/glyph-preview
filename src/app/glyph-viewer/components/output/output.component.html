@@ -1,2 +1,2 @@
-<input class="form-control form-control-lg mb-3" placeholder="Enter text here..." [(ngModel)]="state.textOutput">
-<h1 [style.font-family]="state.getFontFamily()">{{state.textOutput}}</h1>
+<input class="form-control form-control-lg mb-3" placeholder="Enter text here..." [(ngModel)]="state.textOutput" #inputEl1 (focus)="focus(inputEl1)" (blur)="blur($event)">
+<input class="text-area" [style.font-family]="state.getFontFamily()" [(ngModel)]="state.textOutput" #inputEl2 (focus)="focus(inputEl2)" (blur)="blur($event)">

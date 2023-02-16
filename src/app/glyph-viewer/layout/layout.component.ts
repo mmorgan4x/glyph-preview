@@ -24,4 +24,5 @@ export class LayoutComponent {
 //uont system,upload,url
 //selection input
 //format output
+//zoom grid
 

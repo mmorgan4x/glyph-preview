@@ -8,6 +8,7 @@ export class StateManager {
   selectedFont: Font | null = null;
 
   textOutput = '';
+  inputEl: HTMLInputElement | null = null;
 
   constructor() {
     this.fonts = JSON.parse(localStorage.getItem('fonts') || '[]');
@@ -55,8 +56,18 @@ export class StateManager {
   }
 
   addGylph(char: string) {
-    this.textOutput += char;
+    // this.textOutput += char;
+    if (this.inputEl) {
+      const start = this.inputEl.selectionStart ?? this.inputEl.value.length;
+      const end = this.inputEl.selectionEnd ?? this.inputEl.value.length;
+      this.textOutput = `${this.textOutput.slice(0, start)}${char}${this.textOutput.slice(end)}`;
+      // this.inputEl.focus();
+      setTimeout(() => {
+        this.inputEl?.setSelectionRange(start + 1, start + 1);
+      });
+    }
   }
+
 
   async readFileAsync(file: File) {
     return new Promise<string>((resolve, reject) => {
