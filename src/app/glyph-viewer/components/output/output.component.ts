@@ -9,6 +9,8 @@ import { StateManager } from '../../state.manager';
 export class OutputComponent {
 
   constructor(public state: StateManager) { }
+  color = '#FF0000'
+  background = '#DDD'
 
   @ViewChild('inputEl1') inputEl1: ElementRef | null = null;
 
@@ -24,7 +26,7 @@ export class OutputComponent {
     e.preventDefault()
     let target = e.relatedTarget as HTMLElement | null;
     if (target?.classList.contains('glyph')) {
-      (e.target as HTMLElement | null)?.focus()
+      (e.target as HTMLElement | null)?.focus();
     }
   }
 }

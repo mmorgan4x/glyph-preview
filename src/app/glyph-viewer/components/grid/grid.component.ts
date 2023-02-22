@@ -19,10 +19,10 @@ export class GridComponent {
   // 57344-63743
   ngOnInit() {
     // let arr = Array.from(Array(1114112).keys());
-    let arr = Array.from(Array(5000).keys());
+    let arr = Array.from(Array(256).keys());
     // let arr = ['ǁ'.charCodeAt(0)]
     for (let i = 57344; i <= 63743; i++) {
-      arr.push(i);
+      // arr.push(i);
     }
     this.glyphs = arr.map((t) => ({ code: t, unicode: this.hex(t), char: String.fromCharCode(t), isDefault: false }));
 

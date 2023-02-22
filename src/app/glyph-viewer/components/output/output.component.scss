@@ -1,6 +1,7 @@
 h1 {
     font-size: 96px;
 }
+
 .text-area {
     display: block;
     width: 100%;
@@ -9,4 +10,29 @@ h1 {
     border: none;
     outline: none;
     padding: 1rem;
+}
+/*------ Style 1 ------*/
+
+.btn-color {
+    display: flex;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid #000;
+    padding: 0;
+    overflow: hidden;
+    display: block;
+    height: auto;
+    border-radius: 4px;
+    margin-top: calc(-1* var(--bs-btn-padding-y) + .25rem);
+    margin-bottom: calc(-1* var(--bs-btn-padding-y) + .25rem);
+    margin-left: calc(-1* var(--bs-btn-padding-x) + .25rem);
+    margin-right: calc(-1* var(--bs-btn-padding-x) + .25rem);
+    width: 1.75rem;
+
+    &::-webkit-color-swatch {
+        border: none;
+    }
 }
