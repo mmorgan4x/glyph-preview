@@ -5,19 +5,18 @@ h1 {
 .text-area {
     display: block;
     width: 100%;
-    background: #eee;
-    font-size: 42px;
     border: none;
     outline: none;
     padding: 1rem;
 }
+
 /*------ Style 1 ------*/
 
 .btn-color {
     display: flex;
 }
 
-input[type="color"] {
+input[type="color"]:not(.hidden-color) {
     -webkit-appearance: none;
     appearance: none;
     border: 1px solid #000;
@@ -35,4 +34,23 @@ input[type="color"] {
     &::-webkit-color-swatch {
         border: none;
     }
+}
+.hidden-color {
+    visibility: hidden;
+    position: absolute;
+}
+
+.btn-c span {
+    display: block;
+    width: 1rem;
+    border-bottom: 4px solid;
+    margin-top: 2px;
+    line-height: 1;
+}
+
+.btn-b span {
+    display: block;
+    width: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid;
 }

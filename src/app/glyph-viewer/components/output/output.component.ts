@@ -11,6 +11,10 @@ export class OutputComponent {
   constructor(public state: StateManager) { }
   color = '#FF0000'
   background = '#DDD'
+  size = 72;
+  bold = false;
+  italic = false;
+  underline = false;
 
   @ViewChild('inputEl1') inputEl1: ElementRef | null = null;
 

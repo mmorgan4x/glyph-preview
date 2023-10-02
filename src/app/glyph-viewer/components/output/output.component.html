@@ -1,25 +1,33 @@
 <input class="form-control form-control-lg mb-3" placeholder="Enter text here..." [(ngModel)]="state.textOutput" #inputEl1 (focus)="focus(inputEl1)" (blur)="blur($event)">
 <div class="d-flex mb-1">
     <div class="btn-group me-2">
-        <label class="btn btn-outline-primary btn-color">
+        <!-- <label class="btn btn-outline-primary btn-color">
             <span class="me-3">Color</span>
             <input type="color" [(ngModel)]="color">
         </label>
         <label class="btn btn-outline-primary btn-color">
             <span class="me-3">BG</span>
             <input type="color" [(ngModel)]="background">
+        </label> -->
+        <label class="btn btn-outline-primary btn-c">
+            <span [style.border-color]="color">A</span>
+            <input type="color" [(ngModel)]="color" class="hidden-color">
+        </label>
+        <label class="btn btn-outline-primary btn-b">
+            <span [style.background]="background">A</span>
+            <input type="color" [(ngModel)]="background" class="hidden-color">
         </label>
     </div>
     <div class="btn-group me-2">
-        <button class="btn btn-outline-primary"><i class="bi bi-type-bold"></i></button>
-        <button class="btn btn-outline-primary"><i class="bi bi-type-italic"></i></button>
-        <button class="btn btn-outline-primary"><i class="bi bi-type-underline"></i></button>
+        <button class="btn btn-outline-primary" (click)="bold=!bold" [class.active]="bold"><i class="bi bi-type-bold"></i></button>
+        <button class="btn btn-outline-primary" (click)="italic=!italic" [class.active]="italic"><i class="bi bi-type-italic"></i></button>
+        <button class="btn btn-outline-primary" (click)="underline=!underline" [class.active]="underline"><i class="bi bi-type-underline"></i></button>
     </div>
     <div class="btn-group me-2">
-        <button class="btn btn-outline-primary">+</button>
-        <button class="btn btn-outline-primary">-</button>
+        <button class="btn btn-outline-primary" (click)="size=size+1">+</button>
+        <button class="btn btn-outline-primary" (click)="size=size-1">-</button>
     </div>
     <button class="btn btn-outline-primary">reset</button>
 </div>
 
-<input class="text-area" [style.color]="color" [style.background]="background" [style.font-family]="state.getFontFamily()" [(ngModel)]="state.textOutput" #inputEl2 (focus)="focus(inputEl2)" (blur)="blur($event)" spellcheck="false">
+<input class="text-area" [style.font-style]="italic?'italic':'normal'" [style.text-decoration]="underline?'underline':'none'" [style.font-weight]="bold?900:'normal'" [style.font-size.px]="size" [style.color]="color" [style.background]="background" [style.font-family]="state.getFontFamily()" [(ngModel)]="state.textOutput" #inputEl2 (focus)="focus(inputEl2)" (blur)="blur($event)" spellcheck="false">
